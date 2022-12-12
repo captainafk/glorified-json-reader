@@ -1,0 +1,49 @@
+{
+    "title": "Favorite board games",
+    "name": "M. Cem Kobal",
+    "email": "cem.kobal@gmail.com",
+    "boardgames": [
+        {
+            "name": "5-Minute Marvel",
+            "bggScore": 6.8,
+            "best": 3,
+            "bggLink": "https://boardgamegeek.com/boardgame/253618/5-minute-marvel"
+        },
+        {
+            "name": "Age of War",
+            "bggScore": 6.5,
+            "best": 4,
+            "bggLink": "https://boardgamegeek.com/boardgame/155695/age-war"
+        },
+        {
+            "name": "Catan",
+            "bggScore": 7.1,
+            "best": 4,
+            "bggLink": "https://boardgamegeek.com/boardgame/13/catan"
+        },
+        {
+            "name": "Everdell",
+            "bggScore": 8.1,
+            "best": 3,
+            "bggLink": "https://boardgamegeek.com/boardgame/199792/everdell"
+        },
+        {
+            "name": "Res Arcana",
+            "bggScore": 7.7,
+            "best": 2,
+            "bggLink": "https://boardgamegeek.com/boardgame/262712/res-arcana"
+        },
+        {
+            "name": "Root",
+            "bggScore": 8.1,
+            "best": 4,
+            "bggLink": "https://boardgamegeek.com/boardgame/237182/root"
+        },
+        {
+            "name": "Runebound",
+            "bggScore": 7.5,
+            "best": 2,
+            "bggLink": "https://boardgamegeek.com/boardgame/181530/runebound-third-edition"
+        }
+    ]
+}
