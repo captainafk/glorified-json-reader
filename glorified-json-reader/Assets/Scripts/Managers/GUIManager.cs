@@ -56,5 +56,7 @@ namespace GJR
                 bgListElement.Best.text = boardGame.best + " people";
             }
         }
+
+        public void RequestApplicationQuit() => MessageBus.Publish(new OnApplicationQuitRequested());
     }
 }

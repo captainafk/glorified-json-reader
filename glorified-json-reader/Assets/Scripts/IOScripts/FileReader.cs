@@ -17,7 +17,7 @@ namespace GJR
         /// <returns></returns>
         public static string ReadFile()
         {
-            var path = Application.persistentDataPath + "/input.json";
+            var path = Application.dataPath + "/../input.json";
 
 #if UNITY_EDITOR
             path = "Assets/ExampleJSON/input.json";
