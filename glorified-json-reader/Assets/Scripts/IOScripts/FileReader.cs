@@ -24,8 +24,7 @@ namespace GJR
                            Directory.GetParent(Application.dataPath)?.ToString() ?? string.Empty)
                        + "/input.json";
 #elif UNITY_STANDALONE
-            path = Directory.GetParent(Application.dataPath)?.ToString() ?? string.Empty
-                       + "/input.json";
+            path = Directory.GetParent(Application.dataPath) + "\\input.json";
 #endif
 
 #if UNITY_EDITOR
