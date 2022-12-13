@@ -1228,6 +1228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f7f479aa33498e96a416e212089766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _showcase: {fileID: 1895428860}
   _bgListElementPrefab: {fileID: 7364963687191703772, guid: aaf2b93dc4a154f218044916ead1bcd1,
     type: 3}
   _listMask: {fileID: 696224388}
@@ -1236,9 +1237,35 @@ MonoBehaviour:
   _boardGameName: {fileID: 696224387}
   _boardGameScore: {fileID: 696224386}
   _boardGameBest: {fileID: 696224385}
+  _popup: {fileID: 1244704932}
+  _popupError: {fileID: 1650600853}
   _boardGameNameText: Board Game Name
   _boardGameScoreText: BoardGameGeek Score
   _boardGameBestText: Best Played By
+--- !u!1 &1244704932 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 361019499553222423, guid: aafa5f2c49f464e36bbc0aeb8e905d10,
+    type: 3}
+  m_PrefabInstance: {fileID: 2357356765291291054}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1650600853 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 361019498903435628, guid: aafa5f2c49f464e36bbc0aeb8e905d10,
+    type: 3}
+  m_PrefabInstance: {fileID: 2357356765291291054}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1895428860 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6611365205912414246, guid: d511c206f5a22412c896667e16c5c77c,
+    type: 3}
+  m_PrefabInstance: {fileID: 696224383}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2357356765291291054
 PrefabInstance:
   m_ObjectHideFlags: 0

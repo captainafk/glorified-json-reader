@@ -17,7 +17,9 @@ namespace GJR
         /// <returns></returns>
         public static string ReadFile()
         {
-            var path = Application.dataPath + "/../input.json";
+            var path = Directory.GetParent(
+                           Directory.GetParent(Application.dataPath)?.ToString() ?? string.Empty)
+                       + "/input.json";
 
 #if UNITY_EDITOR
             path = "Assets/ExampleJSON/input.json";
@@ -25,8 +27,8 @@ namespace GJR
 
             if (!File.Exists(path))
             {
-                // TODO: Handle this with a pop-up, then quit the application.
-                Debug.LogError("The file does not exist.");
+                var errorMessage = "The input.json file does not exist on the following path: " + path;
+                MessageBus.Publish(new OnErrorOccured(errorMessage));
                 return null;
             }
             
@@ -39,8 +41,8 @@ namespace GJR
             }
             catch (Exception e)
             {
-                // TODO: Handle this with a pop-up, then quit the application.
-                Debug.LogError("The reading process failed: " + e);
+                var errorMessage = "The reading process failed: " + e;
+                MessageBus.Publish(new OnErrorOccured(errorMessage));
                 throw;
             }
 

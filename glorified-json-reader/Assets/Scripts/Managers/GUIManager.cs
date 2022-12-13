@@ -11,7 +11,8 @@ namespace GJR
     /// </summary>
     public class GUIManager : MonoBehaviour
     {
-        [Header("References")]
+        [Header("Showcase References")] 
+        [SerializeField] private GameObject _showcase;
         [SerializeField] private BoardGameListElement _bgListElementPrefab;
         [SerializeField] private Transform _listMask;
         [SerializeField] private TextMeshProUGUI _personName;
@@ -19,6 +20,10 @@ namespace GJR
         [SerializeField] private TextMeshProUGUI _boardGameName;
         [SerializeField] private TextMeshProUGUI _boardGameScore;
         [SerializeField] private TextMeshProUGUI _boardGameBest;
+
+        [Header("Popup References")]
+        [SerializeField] private GameObject _popup;
+        [SerializeField] private TextMeshProUGUI _popupError;
         
         [Header("Config")]
         [SerializeField] private string _boardGameNameText = "Board Game Name";
@@ -26,6 +31,7 @@ namespace GJR
         [SerializeField] private string _boardGameBestText = "Best Played By";
         
         private IDisposable _d1;
+        private IDisposable _d2;
         
         private void Awake()
         {
@@ -33,9 +39,18 @@ namespace GJR
             {
                 LoadEnthusiastToUI(ge.BoardGameEnthusiast);
             });
+
+            _d2 = MessageBus.Receive<OnErrorOccured>().Subscribe(ge =>
+            {
+                ShowErrorPopup(ge.ErrorMessage);
+            });
         }
 
-        private void OnDestroy() => _d1?.Dispose();
+        private void OnDestroy()
+        {
+            _d1?.Dispose();
+            _d2?.Dispose();
+        }
 
         private void LoadEnthusiastToUI(BoardGameEnthusiast enthusiast)
         {
@@ -55,6 +70,13 @@ namespace GJR
                 bgListElement.Score.text = boardGame.bggScore.ToString(CultureInfo.InvariantCulture);
                 bgListElement.Best.text = boardGame.best + " people";
             }
+        }
+
+        private void ShowErrorPopup(string errorMessage)
+        {
+            _showcase.SetActive(false);
+            _popup.SetActive(true);
+            _popupError.text = errorMessage;
         }
 
         public void RequestApplicationQuit() => MessageBus.Publish(new OnApplicationQuitRequested());
