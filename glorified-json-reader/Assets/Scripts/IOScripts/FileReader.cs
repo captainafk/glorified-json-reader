@@ -17,9 +17,16 @@ namespace GJR
         /// <returns></returns>
         public static string ReadFile()
         {
-            var path = Directory.GetParent(
+            var path = string.Empty;
+            
+#if UNITY_STANDALONE_OSX
+            path = Directory.GetParent(
                            Directory.GetParent(Application.dataPath)?.ToString() ?? string.Empty)
                        + "/input.json";
+#elif UNITY_STANDALONE
+            path = Directory.GetParent(Application.dataPath)?.ToString() ?? string.Empty
+                       + "/input.json";
+#endif
 
 #if UNITY_EDITOR
             path = "Assets/ExampleJSON/input.json";
