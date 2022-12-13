@@ -10,7 +10,9 @@ namespace GJR
         private void Start()
         {
             var input = FileReader.ReadFile();
-            print(input);
+
+            var boardGameEnthusiast = FileReader.ParseJSON<BoardGameEnthusiast>(input);
+            print(boardGameEnthusiast.ToString());
         }
     }
 }

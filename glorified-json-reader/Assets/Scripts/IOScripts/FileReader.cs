@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace GJR
@@ -44,6 +45,27 @@ namespace GJR
             }
 
             return contents;
+        }
+
+        /// <summary>
+        /// Converts a string to a class of type T
+        /// </summary>
+        /// <param name="text"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static T ParseJSON<T>(string text)
+        {
+            try
+            {
+                var parsedObject = JsonConvert.DeserializeObject<T>(text);
+                return parsedObject;
+            }
+            catch (Exception e)
+            {
+                // TODO: Handle this with a pop-up, then quit the application.
+                Debug.LogError("The process of parsing the JSON has failed: " + e);
+                throw;
+            }
         }
     }
 }
